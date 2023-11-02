@@ -23,6 +23,8 @@ mod set_tearing_effect;
 pub use set_tearing_effect::*;
 mod set_invert_mode;
 pub use set_invert_mode::*;
+mod set_frame_rate;
+pub use set_frame_rate::*;
 
 /// Common trait for DCS commands.
 ///

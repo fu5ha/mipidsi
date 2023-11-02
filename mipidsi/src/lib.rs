@@ -258,6 +258,12 @@ where
             .write_command(dcs::SetTearingEffect(tearing_effect))
     }
 
+    /// Configures the frame rate and pixel inversion method of the screen
+    pub fn set_frame_rate(&mut self, frame_rate: FrameRate, inversion: Inversion) -> Result<(), Error> {
+        self.dcs
+            .write_command(dcs::SetFrameRate(frame_rate, inversion))
+    }
+
     ///
     /// Puts the display to sleep, reducing power consumption.
     /// Need to call [Self::wake] before issuing other commands

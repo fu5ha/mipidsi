@@ -292,3 +292,28 @@ impl Default for ColorOrder {
         Self::Rgb
     }
 }
+
+/// Frame rate in Hz
+#[derive(Debug, Clone, Copy)]
+#[repr(u8)]
+#[allow(missing_docs)]
+pub enum FrameRate {
+    Hz120 = 0x00,
+    Hz90 = 0x05,
+    Hz60 = 0x0F,
+    Hz50 = 0x15,
+    Hz45 = 0x19,
+    Hz40 = 0x1F,
+}
+
+/// Pixel inversion order to use for subsequent frames.
+#[derive(Default, Debug, Clone, Copy)]
+#[repr(u8)]
+pub enum Inversion {
+    /// Checkerboard dot grid inversion matrix
+    #[default]
+    DotInversion = 0x00,
+    /// Column-lined inversion matrix
+    ColumnInversion = 0x07,
+}
+
