@@ -302,6 +302,7 @@ pub enum FrameRate {
     Hz90 = 0x05,
     Hz60 = 0x0F,
     Hz50 = 0x15,
+    Hz48 = 0x17,
     Hz45 = 0x19,
     Hz40 = 0x1F,
 }

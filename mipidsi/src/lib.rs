@@ -208,6 +208,22 @@ where
         Ok(())
     }
 
+    /// Set pixels in the rectangle with data that is blocks of 16 bits Rgb565 pixels in big-endian
+    /// byte order.
+    pub fn set_pixels_565be(
+        &mut self,
+        sx: u16,
+        sy: u16,
+        ex: u16,
+        ey: u16,
+        pixel_data: &[u8],
+    ) -> Result<(), Error> {
+        self.set_address_window(sx, sy, ex, ey)?;
+        self.model.write_pixels_565be(&mut self.dcs, pixel_data)?;
+
+        Ok(())
+    }
+
     ///
     /// Sets scroll region
     /// # Arguments

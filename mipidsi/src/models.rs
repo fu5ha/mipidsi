@@ -69,6 +69,12 @@ pub trait Model {
         DI: WriteOnlyDataCommand,
         I: IntoIterator<Item = Self::ColorFormat>;
 
+
+    /// Write pixels known to be in 16bit, big-endian byte order, RGB 565 format.
+    fn write_pixels_565be<DI: WriteOnlyDataCommand>(&mut self, _di: &mut Dcs<DI>, _pixel_data: &[u8]) -> Result<(), Error> {
+        unimplemented!();
+    }
+
     /// Creates default [ModelOptions] for this particular [Model].
     ///
     /// This serves as a "sane default". There can be additional variants which will be provided via

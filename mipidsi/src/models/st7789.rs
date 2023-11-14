@@ -80,6 +80,12 @@ impl Model for ST7789 {
         Ok(())
     }
 
+    fn write_pixels_565be<DI: WriteOnlyDataCommand>(&mut self, dcs: &mut Dcs<DI>, pixel_data: &[u8]) -> Result<(), Error> {
+        dcs.write_command(WriteMemoryStart)?;
+        dcs.di.send_data(DataFormat::U8(pixel_data))?;
+        Ok(())
+    }
+
     fn default_options() -> crate::ModelOptions {
         let mut options = ModelOptions::with_sizes((240, 320), (240, 320));
         options.set_invert_colors(ColorInversion::Normal);
